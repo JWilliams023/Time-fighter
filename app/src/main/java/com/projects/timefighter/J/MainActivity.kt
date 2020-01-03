@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     internal var gameStarted = false
 
     internal lateinit var countDownTimer: CountDownTimer
-    internal val initialCountDown: Long = 50000
+    internal val initialCountDown: Long = 60000
     internal val countDownInterval: Long = 1000
 
 
