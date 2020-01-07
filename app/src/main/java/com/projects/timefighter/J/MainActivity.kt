@@ -3,9 +3,13 @@ package com.projects.timefighter.J
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -42,11 +46,14 @@ class MainActivity : AppCompatActivity() {
 
 
         tapMeButton.setOnClickListener { view ->
+            val bounceAnimation = AnimationUtils.loadAnimation(this, R.anim.bounce)
+            view.startAnimation(bounceAnimation)
             incrementScore()
         }
 
         resetGame()
     }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -62,6 +69,32 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         Log.d(TAG, "onDestroy called.")
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.actionAbout) {
+            showInfo()
+        }
+        return true
+    }
+
+    private fun showInfo() {
+
+        val dialog = getString(R.string.about_title, BuildConfig.VERSION_NAME)
+        val dialogMessage = getString(R.string.about_message)
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(dialog)
+        builder.setTitle(dialogMessage)
+        builder.create().show()
+
+    }
+
 
     private fun incrementScore() {
 
@@ -103,7 +136,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun endGame() {
-        Toast.makeText(this, getString(R.string.gameOverMessage, score), Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.game_over_message, score), Toast.LENGTH_LONG).show()
         resetGame()
     }
 }

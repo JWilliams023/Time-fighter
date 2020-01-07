@@ -3,5 +3,8 @@
     <string name="your_score">Your Score: %1$d</string>
     <string name="time_left">Time Left: %1$d</string>
     <string name="tap_me">TAP ME!</string>
-    <string name="gameOverMessage">Times up! Here is your score: %1$d </string>
+    <string name="game_over_message">Times up! Here is your score: %1$d</string>
+    <string name="about_menu">About</string>
+    <string name="about_title">Time Fighter %s</string>
+    <string name="about_message">Created By Williams</string>
 </resources>
