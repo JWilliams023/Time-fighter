@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     internal lateinit var countDownTimer: CountDownTimer
     internal val initialCountDown: Long = 30000
     internal val countDownInterval: Long = 1000
-    internal var timeLeftOnTimer: Long = 60000
+    internal var timeLeftOnTimer: Long = 30000
 
     companion object {
         private val TAG = MainActivity::class.java.simpleName
