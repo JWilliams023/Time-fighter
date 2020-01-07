@@ -1,1 +1,1 @@
-![Github preview](docs/preview.png)
+![Preview](docs/preview.png)
